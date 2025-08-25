@@ -57,7 +57,7 @@ Du lærer at sende data til en komponent med props, og hvordan du kan modtage og
 
 **1. Prøv tre måder at modtage data i User-komponenten:**
 
-- **Enkeltvis props med destructuring:**
+- **Enkeltvis props med destructuring:**  
   Du modtager hver værdi som en variabel direkte i funktionshovedet.
 
   ```jsx
@@ -66,7 +66,13 @@ Du lærer at sende data til en komponent med props, og hvordan du kan modtage og
     console.log("Enkeltvis props:", name, mail, title, image, id);
   }
   // I App.jsx:
-  <User name={user.name} mail={user.mail} title={user.title} image={user.image} id={user.id} />;
+  <User
+    name={user.name}
+    mail={user.mail}
+    title={user.title}
+    image={user.image}
+    id={user.id}
+  />;
   ```
 
 - **Props som ét objekt:**
@@ -77,7 +83,13 @@ Du lærer at sende data til en komponent med props, og hvordan du kan modtage og
     console.log("Props-objekt:", props);
   }
   // I App.jsx:
-  <User name={user.name} mail={user.mail} title={user.title} image={user.image} id={user.id} />;
+  <User
+    name={user.name}
+    mail={user.mail}
+    title={user.title}
+    image={user.image}
+    id={user.id}
+  />;
   ```
 
 - **Hele user-objektet som én prop:**
@@ -184,7 +196,9 @@ const [showDetails, setShowDetails] = useState(true);
 _Lav en knap:_
 
 ```jsx
-<button onClick={() => setShowDetails(!showDetails)}>{showDetails ? "Skjul" : "Vis"} detaljer</button>
+<button onClick={() => setShowDetails(!showDetails)}>
+  {showDetails ? "Skjul" : "Vis"} detaljer
+</button>
 ```
 
 _Brug showDetails til at styre om detaljerne vises:_
@@ -276,7 +290,7 @@ _Hjælp: Opret en ny fil fx `UserList.jsx` og brug map til at vise alle brugere:
 function UserList({ users }) {
   return (
     <div>
-      {users.map(user => (
+      {users.map((user) => (
         <User user={user} key={user.id} />
       ))}
     </div>
@@ -331,7 +345,7 @@ Brug i UserList:
 import UserCard from "./UserCard";
 // ...
 {
-  users.map(user => <UserCard user={user} key={user.id} />);
+  users.map((user) => <UserCard user={user} key={user.id} />);
 }
 ```
 
@@ -371,7 +385,7 @@ function handleSubmit(e) {
   const form = e.target;
   const newUser = {
     id: crypto.randomUUID(),
-    name: form.name.value
+    name: form.name.value,
   };
   setUsers([...users, newUser]);
   form.reset();
@@ -405,7 +419,7 @@ function handleSubmit(e) {
     mail: form.mail.value,
     title: form.title.value,
     image: form.image.value,
-    age: form.age.value
+    age: form.age.value,
   };
   setUsers([...users, newUser]);
   form.reset();
@@ -426,7 +440,7 @@ _Hjælp:_
 
 ```jsx
 function handleDeleteUser(id) {
-  setUsers(users.filter(user => user.id !== id));
+  setUsers(users.filter((user) => user.id !== id));
 }
 ```
 
@@ -463,7 +477,9 @@ const [searchTerm, setSearchTerm] = useState("");
 _Filtrér brugere:_
 
 ```jsx
-const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()));
+const filteredUsers = users.filter((user) =>
+  user.name.toLowerCase().includes(searchTerm.toLowerCase())
+);
 ```
 
 **Step 6.2:** Tilføj en dropdown, så man kan filtrere brugere efter titel.  
