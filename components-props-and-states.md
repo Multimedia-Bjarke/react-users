@@ -434,6 +434,8 @@ _Hjælp: Se eksemplet ovenfor – brugeren tilføjes i handleSubmit-funktionen._
 
 **Step 5.3:** Tilføj en “slet bruger”-knap på hvert kort, der fjerner brugeren fra listen.
 
+KOMMET HERTIL!!!!!
+
 _Hjælp:_
 
 1. Lav en funktion i din App-komponent, der kan fjerne en bruger fra listen:
